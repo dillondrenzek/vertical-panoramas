@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  overflow: auto;
+}
+
+.pano-tray {
+  height: 100%;
+}
+
+.pano {
+  height: 100%;
+  width: 250px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.pano:nth-child(odd) {
+  background: #a95;
+}
+.pano:nth-child(odd):hover,
+.pano:nth-child(odd).active {
+  background: #ba6;
+}
+.pano:nth-child(even) {
+  background: #5a9;
+}
+.pano:nth-child(even):hover,
+.pano:nth-child(even).active {
+  background: #6ba;
+}

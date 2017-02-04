@@ -1,0 +1,3 @@
+<div class="pano-tray" [style.width.px]="panos.length * 250">
+  <div class="pano" [class.active]="activePano === i" *ngFor="let pano of panos; let i = index" (click)="select.emit(i)"></div>
+</div>
