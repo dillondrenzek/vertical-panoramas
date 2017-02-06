@@ -1,17 +1,46 @@
 :host {
   display: block;
-  overflow: auto;
+  overflow: hidden;
 }
 
-.pano-tray {
+/* Arrows */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 6rem;
+  color: white;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* Pano Tray */
+
+.frame {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.tray {
   height: 100%;
 }
+
+/* Panos */
 
 .pano {
   height: 100%;
   width: 250px;
   display: inline-block;
   cursor: pointer;
+  position: relative;
 }
 
 .pano:nth-child(odd) {
@@ -27,4 +56,42 @@
 .pano:nth-child(even):hover,
 .pano:nth-child(even).active {
   background: #6ba;
+}
+
+/*
+Pano Image
+*/
+
+.pano img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+.pano .img-frame {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  position: relative;
+}
+
+/*
+Pano Label
+*/
+
+.pano .label-frame {
+  height: 15%;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  border-top: 1px solid #fc0;
+  background: #30373f;
+}
+
+.pano h2,
+.pano h3 {
+  width: 100%;
+  color: #eaeaea;
+
+  pointer-events: none;
 }

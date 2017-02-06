@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PagePositionService {
 
-  private _position: number = 0;
+  private _position: number = 1;
 
   constructor() {  }
 

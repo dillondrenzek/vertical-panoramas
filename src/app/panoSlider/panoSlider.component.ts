@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 declare var module: any;
 
@@ -10,10 +10,17 @@ declare var module: any;
 })
 export class PanoSliderComponent {
 
+  constructor(private _el: ElementRef) {}
+
   @Input() activePano: number;
 
-  @Input() panos: number[] = [];
+  @Input() panos: {label: string}[] = [];
 
   @Output() select = new EventEmitter<number>();
+
+  ngAfterViewInit() {
+
+  }
+
 
 }
