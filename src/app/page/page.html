@@ -9,13 +9,10 @@
       <h1>Vertical Panoramas</h1>
       <h2>By Dillon Drenzek</h2>
     </header>
-    <pano-slider
-      [activePano]="activePano"
-      [panos]="panos"
-      (select)="displayPano($event)"></pano-slider>
+    <pano-slider></pano-slider>
   </section>
 
   <!-- Section 2 -->
   <section [style.height.px]="secondaryHeight">
-    {{panos[activePano]?.label}}
+    
   </section>

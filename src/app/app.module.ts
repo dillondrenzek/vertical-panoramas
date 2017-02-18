@@ -6,6 +6,7 @@ import { PageComponent }  from './page/page.component';
 import { PanoSliderComponent }  from './panoSlider/panoSlider.component';
 
 import { PagePositionService } from './page/pagePosition.service';
+import { PanoService } from './pano.service';
 
 @NgModule({
   imports:      [ BrowserModule ],
@@ -15,7 +16,8 @@ import { PagePositionService } from './page/pagePosition.service';
     PanoSliderComponent
   ],
   providers: [
-    PagePositionService
+    PagePositionService,
+    PanoService
   ],
   bootstrap:    [ AppComponent ]
 })

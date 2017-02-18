@@ -1,19 +1,37 @@
 import { Injectable } from '@angular/core';
+import { PanoService } from '../pano.service';
+
+export enum PagePosition {
+  TOP = 0,
+  CENTER = 1,
+  BOTTOM = 2
+}
+
+const DEFAULT_POS = PagePosition.CENTER;
 
 @Injectable()
 export class PagePositionService {
 
-  private _position: number = 1;
+  constructor(private panoService: PanoService) {
 
-  constructor() {  }
+    this.panoService.activePano.subscribe((pano) => {
+      if (pano) this.go(PagePosition.BOTTOM);
+      else this.go(PagePosition.CENTER);
+    });
 
-  get position(): number { return this._position; }
+  }
 
-  go(pos: number) {
-    switch (pos) {
-      case 2: this._position = pos; break;
-      case 1: default: this._position = pos; break;
-      case 0: this._position = pos; break;
-    }
+  private _position: PagePosition = DEFAULT_POS;
+
+  get position(): PagePosition { return this._position; }
+
+  // Go to a position
+  go(pos: PagePosition) {
+    this._position = pos;
+  }
+
+  // Back to original position
+  return() {
+    this.go(DEFAULT_POS);
   }
 }

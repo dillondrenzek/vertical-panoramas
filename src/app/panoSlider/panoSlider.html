@@ -1,19 +1,23 @@
 <div class="frame">
   <div class="tray" [style.width.px]="panos.length * 250">
-    <div class="pano" [class.active]="activePano === i" *ngFor="let pano of panos; let i = index" (click)="select.emit(i)">
 
+
+    <div class="pano"
+      *ngFor="let pano of panos; let i = index"
+      [class.active]="activeIndex === i"
+      (click)="clickedPanoAtIndex(i)">
       <div class="img-frame">
         <img src="{{'/public/img/' + pano.image.src}}" alt="{{pano.label}}">
       </div>
-
       <div class="label-frame">
         <h2>{{pano.label}}</h2>
         <h3>
           {{pano.location}}
         </h3>
       </div>
-
     </div>
+
+
   </div>
   <div class="arrow left">
     &lt;

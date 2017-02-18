@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { PanoService } from '../pano.service';
+import { Pano } from '../Pano';
 
 declare var module: any;
 
@@ -10,17 +12,30 @@ declare var module: any;
 })
 export class PanoSliderComponent {
 
-  constructor(private _el: ElementRef) {}
+  constructor(
+    private _el: ElementRef,
+    private panoService: PanoService
+  ) {
 
-  @Input() activePano: number;
-
-  @Input() panos: {label: string}[] = [];
-
-  @Output() select = new EventEmitter<number>();
-
-  ngAfterViewInit() {
+    this.panoService.activeIndex.subscribe((p: number) => this.activeIndexChanged(p));
 
   }
 
+  get panos(): Pano[] {
+    return this.panoService.panos;
+  }
 
+  private _activeIndex: number = null;
+  get activeIndex(): number {
+    return this._activeIndex;
+  }
+
+  activeIndexChanged(idx: number) {
+    this._activeIndex = idx;
+  }
+
+  clickedPanoAtIndex(idx: number) {
+    let index = (this.activeIndex === null) ? idx : null;
+    this.panoService.setActiveIndex(index);
+  }
 }

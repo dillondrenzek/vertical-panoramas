@@ -4,8 +4,14 @@ import fs = require('fs');
 
 let app = express();
 
+//---------------------------------------------------------------
+// Routes
+//---------------------------------------------------------------
+
+
 // Resources
 
+// Log request, pass
 app.get('/*', (req, res, next) => {
   console.info(req.method.toUpperCase(), req.path );
   next();
@@ -15,24 +21,24 @@ app.get('/*', (req, res, next) => {
 
 // Node Modules
 app.get('/node_modules/*', (req, res) => {
-  console.info('sent: ', __dirname + req.path)
-  res.sendFile(__dirname + req.path, null, (err) => {
-    console.error(err);
-  });
+  res.sendFile(__dirname + req.path);
 });
 
+// Public resources
 app.get('/public/:path', (req, res) => {
-  res.sendFile(__dirname + '/src/public/' + req.params.path );
+  res.sendFile(__dirname + '/src/public/' + req.params.path);
 });
 
-app.get('/styles.css', (req, res) => {
-  res.sendFile(__dirname + '/src/styles.css');
-});
-
-app.get('/systemjs.config.js', (req, res) => {
-  console.info('/systemjs.config.js');
-  res.sendFile(__dirname + '/src/systemjs.config.js');
-});
+// // Stylesheets
+// app.get('/styles.css', (req, res) => {
+//   res.sendFile(__dirname + '/src/styles.css');
+// });
+//
+// // Systemjs
+// app.get('/systemjs.config.js', (req, res) => {
+//   console.info('/systemjs.config.js');
+//   res.sendFile(__dirname + '/src/systemjs.config.js');
+// });
 
 /**
  * Check for specific files in source, if DNE, pass to next
@@ -44,7 +50,6 @@ app.get('/*', (req, res, next) => {
     fs.accessSync(filepath);
   } catch (e) {
     // File access failed, pass next
-    console.warn('File did not exist.');
     next();
   }
   // Send file
@@ -57,16 +62,10 @@ app.get('/*', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
 });
 
-app.get('*', (req, res) => {
-  res.send('hello');
-});
+//---------------------------------------------------------------------------
+// Create Server
+//---------------------------------------------------------------------------
 
 app.listen(8080, () => {
   console.info('Server listening on port 8080');
 });
-
-
-// let server = http.createServer();
-// server.listen(8080, () => {
-//   console.warn('Server listening on port 8080');
-// });
