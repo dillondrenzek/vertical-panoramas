@@ -7,7 +7,7 @@
       [class.active]="activeIndex === i"
       (click)="clickedPanoAtIndex(i)">
       <div class="img-frame">
-        <img src="{{'/public/img/' + pano.image.src}}" alt="{{pano.label}}">
+        <img src="{{ pano.image.src | imgDirUrl }}" alt="{{ pano.label }}">
       </div>
       <div class="label-frame">
         <h2>{{pano.label}}</h2>
