@@ -4,11 +4,11 @@
   "description": "",
   "scripts": {
 
-    "start": "concurrently \"npm run build:prod\" \"npm run serve\"",
+    "start": "npm run start:prod",
 
     "start:prod": "npm run build:prod && npm run serve:prod",
-    "build:prod": "tsc -p ./tsconfig-server.json && tsc -p ./tsconfig-app-prod.json",
-    "serve:prod": "node ./server.js"
+    "build:prod": "tsc -p ./tsconfig-server.json && tsc -p ./src/tsconfig-app-prod.json",
+    "serve:prod": "node ./server.js",
 
 
     "build": "tsc -p src/",
