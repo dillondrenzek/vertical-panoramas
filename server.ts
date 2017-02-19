@@ -66,6 +66,6 @@ app.get('/*', (req, res) => {
 // Create Server
 //---------------------------------------------------------------------------
 
-app.listen(8080, () => {
-  console.info('Server listening on port 8080');
+app.listen(3000, () => {
+  console.info('Server listening on port 3000');
 });
