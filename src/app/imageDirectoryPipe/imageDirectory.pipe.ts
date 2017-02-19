@@ -4,7 +4,7 @@ const IMAGE_DIR_PATH: string = '/public/img/';
 
 
 @Pipe({
-  name: 'imgDirUrl'
+  name: 'imgUrl'
 })
 export class ImageDirectoryPipe implements PipeTransform {
 
