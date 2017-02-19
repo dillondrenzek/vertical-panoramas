@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
+
+    "start": "concurrently \"npm run build:prod\" \"npm run serve\"",
+
+    "start:prod": "npm run build:prod && npm run serve:prod",
+    "build:prod": "tsc -p ./tsconfig-server.json && tsc -p ./tsconfig-app-prod.json",
+    "serve:prod": "node ./server.js"
+
+
     "build": "tsc -p src/",
     "build:node": "tsc -p ./tsconfig.json",
     "build:node:watch": "tsc -p ./tsconfig.json -w",
@@ -17,7 +25,7 @@
     "start:node": "npm run build:node:watch",
 
 
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
+
     "pree2e": "npm run build:e2e",
     "e2e": "concurrently \"npm run serve:e2e\" \"npm run protractor\" --kill-others --success first",
     "preprotractor": "webdriver-manager update",
