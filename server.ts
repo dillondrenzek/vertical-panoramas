@@ -45,6 +45,7 @@ app.get('/public/:path', (req, res) => {
  */
 app.get('/*', (req, res, next) => {
   let filepath = __dirname + '/src/' + req.path.replace('/','');
+  console.info('before try');
   try {
     // Try to access file
     fs.accessSync(filepath);
@@ -53,6 +54,7 @@ app.get('/*', (req, res, next) => {
     // File access failed, pass next
     next();
   }
+  console.info('after try');
   // Send file
   res.sendFile(filepath);
 });

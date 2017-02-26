@@ -10,7 +10,7 @@
     "start:dev:watch": "concurrently \"npm run build:dev:watch\" \"npm run serve:dev:watch\"",
     "build:dev:watch": "tsc -p ./tsconfig-server.json -w && tsc -p ./src/tsconfig.json -w",
     "serve:dev:watch": "node-dev ./server.js",
-    "start:dev": "npm run build:dev",
+    "start:dev": "npm run build:dev && npm run serve:dev",
     "build:dev": "tsc -p ./tsconfig-server.json && tsc -p ./src/tsconfig.json",
     "serve:dev": "node-dev ./server.js",
     "build": "tsc -p src/",
