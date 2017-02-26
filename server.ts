@@ -28,16 +28,16 @@ app.get('/*', (req, res, next) => {
 
 
 // Node Modules
-app.use(express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/public'));
-// app.get('/node_modules/*', (req, res) => {
-//   res.sendFile(__dirname + req.path);
-// });
+// app.use(express.static(__dirname + '/node_modules'));
+// app.use(express.static(__dirname + '/public'));
+app.get('/node_modules/*', (req, res) => {
+  res.sendFile(__dirname + req.path);
+});
 
 // Public resources
-// app.get('/public/:path', (req, res) => {
-//   res.sendFile(__dirname + '/src/public/' + req.params.path);
-// });
+app.get('/public/:path', (req, res) => {
+  res.sendFile(__dirname + '/src/public/' + req.params.path);
+});
 
 /**
  * Check for specific files in source, if DNE, pass to next
