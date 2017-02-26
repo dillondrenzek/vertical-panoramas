@@ -2,6 +2,9 @@
   "name": "vertical-panoramas",
   "version": "0.1.0",
   "description": "",
+  "engines": {
+    "node": "4.2.6"
+  },
   "scripts": {
     "start": "npm run start:prod",
     "start:prod": "npm run build:prod && npm run serve:prod",
