@@ -49,6 +49,7 @@ app.get('/*', (req, res, next) => {
     // Try to access file
     fs.accessSync(filepath);
   } catch (e) {
+    console.error('e:', e);
     // File access failed, pass next
     next();
   }
