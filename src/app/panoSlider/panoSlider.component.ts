@@ -2,7 +2,6 @@ import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/cor
 import { PanoService } from '../pano.service';
 import { Pano } from '../Pano';
 
-declare var module: any;
 
 @Component({
   moduleId: module.id,

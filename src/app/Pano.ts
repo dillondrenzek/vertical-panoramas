@@ -1,5 +1,9 @@
 export interface Pano {
   label: string,
-  image: any,
+  image: {
+    height: number,
+    width: number,
+    src: string
+  },
   location: string
 }
