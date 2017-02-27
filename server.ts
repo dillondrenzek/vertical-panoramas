@@ -28,8 +28,6 @@ app.get('/*', (req, res, next) => {
 
 
 // Node Modules
-// app.use(express.static(__dirname + '/node_modules'));
-// app.use(express.static(__dirname + '/public'));
 app.get('/node_modules/*', (req, res) => {
   res.sendFile(__dirname + req.path);
 });
@@ -44,16 +42,13 @@ app.get('/public/:path', (req, res) => {
  */
 app.get('/*', (req, res, next) => {
   let filepath = __dirname + '/src/' + req.path.replace('/','');
-  console.info('before try');
   try {
     // Try to access file
     fs.accessSync(filepath);
   } catch (e) {
-    console.error('e:', e);
     // File access failed, pass next
     next();
   }
-  console.info('after try');
   // Send file
   res.sendFile(filepath);
 });
