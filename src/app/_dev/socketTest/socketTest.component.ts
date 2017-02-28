@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-declare let io: any;
+import { Socket } from '../socket/Socket';
+import * as ev from '../socket/SocketEvent';
 
 @Component({
   selector: 'socket-test',
@@ -14,17 +14,20 @@ declare let io: any;
 })
 export class SocketTestComponent {
 
-  socket = io('http://localhost:8080');
+  socket = new Socket('http://localhost:8080');
   responses: string[] = [];
 
   message: string = '';
 
   constructor() {
 
-    this.socket.on('connect', () => { console.warn('Socket connect.'); });
-    this.socket.on('respond', (data: any) => { this.responses.push(data); });
-    this.socket.on('disconnect', () => { console.warn('Socket disconnect.'); });
+    this.socket.connect()
+      .subscribe((e: ev.SocketEvent<any>) => this.receiveEvent(e));
 
+  }
+
+  receiveEvent(event: ev.SocketEvent<any>) {
+    this.responses.push(event.name + ': ' + event.data);
   }
 
   send() {
