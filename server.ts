@@ -13,17 +13,8 @@ let app = express();
 // Set Port
 app.set('port', (process.env.PORT || 8080));
 
-
-
-// Node Modules
-app.get('/node_modules/*', (req, res) => {
-  res.sendFile(__dirname + req.path);
-});
-
-// Public resources
-app.get('/public/:path', (req, res) => {
-  res.sendFile(__dirname + '/src/public/' + req.params.path);
-});
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/public', express.static(__dirname + '/src/public'));
 
 /**
  * Check for specific files in source, if DNE, pass to next
@@ -36,6 +27,7 @@ app.get('/*', (req, res, next) => {
   } catch (e) {
     // File access failed, pass next
     next();
+    return;
   }
   // Send file
   res.sendFile(filepath);

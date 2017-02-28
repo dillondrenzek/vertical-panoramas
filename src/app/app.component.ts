@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-  <page></page>
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent  {
 
   name: string = 'Vertical Panoramas';
 
-  
+
 
 
 
