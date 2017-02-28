@@ -10,6 +10,6 @@ export class ImageDirectoryPipe implements PipeTransform {
 
 
   transform(value: string, args: any[]): string {
-    return IMAGE_DIR_PATH + value.replace('/','');
+    return (value) ? IMAGE_DIR_PATH + value.replace('/','') : '';
   }
 }

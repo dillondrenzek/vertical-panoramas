@@ -12,30 +12,30 @@ declare const module: any;
 })
 export class PageComponent {
 
-  socket = new WebSocket('ws://localhost:8080', 'echo-protocol');
+  // socket = new WebSocket('ws://localhost:8080', 'echo-protocol');
 
   constructor(private pagePosition: PagePositionService) {}
 
   testWebSocket() {
-    this.socket.send('Test message');
+    // this.socket.send('Test message');
   }
 
   ngOnInit() {
 
-    // When the connection is open, send some data to the server
-    this.socket.onopen = () => {
-      this.socket.send('Ping'); // Send the message 'Ping' to the server
-    };
-
-    // Log errors
-    this.socket.onerror = (error) => {
-      console.log('WebSocket Error ' + error);
-    };
-
-    // Log messages from the server
-    this.socket.onmessage = (e) => {
-      console.log('Server: ' + e.data);
-    };
+    // // When the connection is open, send some data to the server
+    // this.socket.onopen = () => {
+    //   this.socket.send('Ping'); // Send the message 'Ping' to the server
+    // };
+    //
+    // // Log errors
+    // this.socket.onerror = (error) => {
+    //   console.log('WebSocket Error ' + error);
+    // };
+    //
+    // // Log messages from the server
+    // this.socket.onmessage = (e) => {
+    //   console.log('Server: ' + e.data);
+    // };
 
     // socket.send('test message');
   }

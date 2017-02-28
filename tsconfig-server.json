@@ -13,6 +13,7 @@
   "typeRoots": [ "node_modules/@types/" ],
   "types": [ "node", "express" ],
   "files": [
-    "./server.ts"
+    "./server.ts",
+    "./lib/logger/index"
   ]
 }

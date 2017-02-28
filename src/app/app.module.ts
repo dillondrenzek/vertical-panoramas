@@ -1,4 +1,5 @@
 import { NgModule }      from '@angular/core';
+import { FormsModule }      from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
@@ -10,14 +11,18 @@ import { PagePositionService } from './page/pagePosition.service';
 import { PanoService } from './pano.service';
 import { ImageDirectoryPipe } from './imageDirectoryPipe/imageDirectory.pipe';
 
+import { SocketTestComponent } from './socketTest/socketTest.component';
+
+
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [ BrowserModule, FormsModule ],
   declarations: [
     AppComponent,
     PageComponent,
     PanoSliderComponent,
     PanoDetailComponent,
-    ImageDirectoryPipe
+    ImageDirectoryPipe,
+    SocketTestComponent
   ],
   providers: [
     PagePositionService,

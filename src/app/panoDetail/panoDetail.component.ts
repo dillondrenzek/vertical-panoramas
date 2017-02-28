@@ -25,10 +25,9 @@ export class PanoDetailComponent {
   get panoImageUrl(): string { return (this._activePano) ? this._activePano.image.src : null;}
 
   get panoImageSize(): {h: number, w: number} {
-    return {
-      h: this._activePano.image.height,
-      w: this._activePano.image.width
-    };
+    let height = (this._activePano) ? this._activePano.image.height : 0;
+    let width = (this._activePano) ? this._activePano.image.width : 0;
+    return { h: height, w: width };
   }
 
   activePanoChanged(activePano: Pano) {
