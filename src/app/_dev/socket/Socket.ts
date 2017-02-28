@@ -23,7 +23,7 @@ export class Socket {
 
 
 
-  connect(): Observable<SocketEvent> {
+  connect(): Observable<SocketEvent<any>> {
     this._socket = Socket.create(this.url)
     .on(SocketEvent.Connect, () => {
       console.warn('Socket connect.');
@@ -43,7 +43,7 @@ export class Socket {
 
 
 
-  emit(event: SocketEvent) {
+  emit(event: SocketEvent<any>) {
     this._socket.emit(event.name, event.data);
   }
 
