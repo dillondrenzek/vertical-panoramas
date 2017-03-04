@@ -56,6 +56,8 @@ let options = {
   cert: fs.readFileSync('./vp-cert.pem')
 }
 
+let port = process.env.PORT || 8080;
+
 log('post options');
 
 let server = tls.createServer(options, (s) => {
@@ -63,8 +65,8 @@ let server = tls.createServer(options, (s) => {
   s.write("welcome!\n");
   s.pipe(s);
 
-}).listen(8080, () => {
-  log(`Server listening on port ${8080}`);
+}).listen(port, () => {
+  log(`Server listening on port ${port}`);
 });
 
 
