@@ -6,6 +6,9 @@
     "node": "4.2.6"
   },
   "scripts": {
+    "start:https": "npm run build:https && npm run serve:https",
+    "serve:https": "node ./test-https-server.js",
+    "build:https": "tsc -p ./tsconfig-server.json",
     "start": "npm run start:prod",
     "start:prod": "npm run build:prod && npm run serve:prod",
     "build:prod": "tsc -p ./tsconfig-server.json && tsc -p ./src/tsconfig-app-prod.json",

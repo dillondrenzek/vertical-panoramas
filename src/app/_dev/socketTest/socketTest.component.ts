@@ -23,7 +23,7 @@ import * as ev from '../socket/SocketEvent';
 })
 export class SocketTestComponent {
 
-  socket = new Socket('https://localhost:8080');
+  socket = new Socket('https://vertical-panoramas.herokuapp.com');
   responses: string[] = [];
 
   message: string = '';
