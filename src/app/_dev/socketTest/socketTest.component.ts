@@ -5,16 +5,25 @@ import * as ev from '../socket/SocketEvent';
 @Component({
   selector: 'socket-test',
   template: `
-    <div>
-      <div *ngFor="let res of responses">{{res | json}}</div>
+  <input type="text" [(ngModel)]="message"/>
+  <input type="button" value="Send Message" (click)="send()"/>
+    <div class="log">
+      <pre class="log-message" *ngFor="let res of responses">{{res | json}}</pre>
     </div>
-    <input type="text" [(ngModel)]="message"/>
-    <input type="button" value="Send Message" (click)="send()"/>
   `,
+  styles: [
+    `
+    .log {
+      height: 400px;
+      overflow-y : auto;
+      background: #eaeaea;
+    }
+    `
+  ]
 })
 export class SocketTestComponent {
 
-  socket = new Socket('http://localhost:8080');
+  socket = new Socket('https://localhost:8080');
   responses: string[] = [];
 
   message: string = '';
