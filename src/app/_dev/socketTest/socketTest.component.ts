@@ -5,25 +5,16 @@ import * as ev from '../socket/SocketEvent';
 @Component({
   selector: 'socket-test',
   template: `
-  <input type="text" [(ngModel)]="message"/>
-  <input type="button" value="Send Message" (click)="send()"/>
-    <div class="log">
-      <pre class="log-message" *ngFor="let res of responses">{{res | json}}</pre>
+    <div>
+      <div *ngFor="let res of responses">{{res | json}}</div>
     </div>
+    <input type="text" [(ngModel)]="message"/>
+    <input type="button" value="Send Message" (click)="send()"/>
   `,
-  styles: [
-    `
-    .log {
-      height: 400px;
-      overflow-y : auto;
-      background: #eaeaea;
-    }
-    `
-  ]
 })
 export class SocketTestComponent {
 
-  socket = new Socket('https://vertical-panoramas.herokuapp.com');
+  socket = new Socket('http://localhost:8080');
   responses: string[] = [];
 
   message: string = '';
@@ -42,6 +33,6 @@ export class SocketTestComponent {
   send() {
     // console.warn('socket', this.socket);
     // this.socket.send(this.message);
-    this.socket.emit(new ev.AddMessageEvent(this.message));
+    this.socket.emit('add-message', this.message);
   }
 }

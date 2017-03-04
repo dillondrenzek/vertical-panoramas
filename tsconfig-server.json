@@ -14,7 +14,6 @@
   "types": [ "node", "express" ],
   "files": [
     "./server.ts",
-    "./test-https-server.ts",
     "./lib/logger/index"
   ]
 }
