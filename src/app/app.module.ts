@@ -1,21 +1,22 @@
-import { NgModule, APP_INITIALIZER }      from '@angular/core';
-import { HttpModule }       from '@angular/http';
-import { FormsModule }      from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { NgModule,
+  APP_INITIALIZER }               from '@angular/core';
+import { HttpModule }             from '@angular/http';
+import { FormsModule }            from '@angular/forms';
+import { BrowserModule }          from '@angular/platform-browser';
+import { RouterModule }           from '@angular/router';
 
-import { DevModule } from './_dev/dev.module';
+import { DevModule }              from './_dev/dev.module';
+import { ConfigModule }           from './config/config.module';
 
-import { AppComponent }  from './app.component';
-import { PageComponent }  from './page/page.component';
-import { PanoSliderComponent }  from './panoSlider/panoSlider.component';
-import { PanoDetailComponent }  from './panoDetail/panoDetail.component';
+import { AppComponent }           from './app.component';
+import { PageComponent }          from './page/page.component';
+import { PanoSliderComponent }    from './panoSlider/panoSlider.component';
+import { PanoDetailComponent }    from './panoDetail/panoDetail.component';
 
-import { PagePositionService } from './page/pagePosition.service';
-import { PanoService } from './pano.service';
-import { ImageDirectoryPipe } from './imageDirectoryPipe/imageDirectory.pipe';
+import { PagePositionService }    from './page/pagePosition.service';
+import { PanoService }            from './pano.service';
+import { ImageDirectoryPipe }     from './imageDirectoryPipe/imageDirectory.pipe';
 
-import { ConfigService } from './config.service';
 
 @NgModule({
   imports:      [
@@ -28,6 +29,7 @@ import { ConfigService } from './config.service';
         component: PageComponent
       }
     ]),
+    ConfigModule,
     DevModule
   ],
   declarations: [
@@ -40,15 +42,6 @@ import { ConfigService } from './config.service';
   providers: [
     PagePositionService,
     PanoService,
-    ConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (config: ConfigService) => {
-        return () => config.load();
-      },
-      deps: [ ConfigService ],
-      multi: true
-    }
   ],
   bootstrap:    [ AppComponent ]
 })

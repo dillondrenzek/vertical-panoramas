@@ -3,6 +3,7 @@ import fs = require('fs');
 import express = require('express');
 let log = require('./lib/logger').log;
 let socket_io = require('socket.io');
+import { EnvConfig } from './lib/config/index';
 
 //---------------------------------------------------------------
 //  App Setup
@@ -84,6 +85,7 @@ let io = socket_io(server);
 io.on('connection', (socket) => {
   log('Received new socket connection.');
 
+  // TODO: Remove
     setTimeout(() => { io.emit('respond', 'Test message'); }, 5000);
 
   socket.on('disconnect', function(){

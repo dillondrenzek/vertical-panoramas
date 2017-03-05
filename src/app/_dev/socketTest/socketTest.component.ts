@@ -2,8 +2,8 @@ import { Component,
   Inject } from '@angular/core';
 import { Socket } from '../socket/Socket';
 import * as ev from '../socket/SocketEvent';
-import { ENV_CONFIG, EnvConfig} from '../../../env';
-import { ConfigService } from '../../config.service';
+import { EnvConfig} from '../../../../lib/config/index';
+import { ConfigService } from '../../config/config.service';
 
 @Component({
   selector: 'socket-test',
