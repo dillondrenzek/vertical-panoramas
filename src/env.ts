@@ -25,7 +25,7 @@ function getEnvConfig(): EnvConfig {
     appPort: 8080
   };
 
-  if (process && process.env) {
+  if (process !== undefined && process.env) {
     console.warn('process.env', process.env);
 
     if (process.env.APP_PATH) config['appPath'] = process.env.APP_PATH;
