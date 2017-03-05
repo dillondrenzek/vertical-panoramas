@@ -3,6 +3,7 @@ import { Component,
 import { Socket } from '../socket/Socket';
 import * as ev from '../socket/SocketEvent';
 import { ENV_CONFIG, EnvConfig} from '../../../env';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'socket-test',
@@ -22,9 +23,14 @@ export class SocketTestComponent {
 
   message: string = '';
 
-  constructor(@Inject(ENV_CONFIG) private _env: EnvConfig) {
+  constructor(private configService: ConfigService) {
+    let config: EnvConfig = this.configService.config;
 
-    this.socket = new Socket('http://' + _env.appPath + ':' +_env.appPort );
+    console.warn('config', config);
+
+    let socketUrl = config.appPath;
+
+    this.socket = new Socket(socketUrl);
 
     this.socket.connect()
       .subscribe((e: ev.SocketEvent<any>) => this.receiveEvent(e));

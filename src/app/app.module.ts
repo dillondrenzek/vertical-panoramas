@@ -1,4 +1,5 @@
-import { NgModule }      from '@angular/core';
+import { NgModule, APP_INITIALIZER }      from '@angular/core';
+import { HttpModule }       from '@angular/http';
 import { FormsModule }      from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -14,12 +15,13 @@ import { PagePositionService } from './page/pagePosition.service';
 import { PanoService } from './pano.service';
 import { ImageDirectoryPipe } from './imageDirectoryPipe/imageDirectory.pipe';
 
-import { envConfigProvider, ENV_CONFIG } from '../env';
+import { ConfigService } from './config.service';
 
 @NgModule({
   imports:      [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -38,7 +40,15 @@ import { envConfigProvider, ENV_CONFIG } from '../env';
   providers: [
     PagePositionService,
     PanoService,
-    envConfigProvider
+    ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (config: ConfigService) => {
+        return () => config.load();
+      },
+      deps: [ ConfigService ],
+      multi: true
+    }
   ],
   bootstrap:    [ AppComponent ]
 })
