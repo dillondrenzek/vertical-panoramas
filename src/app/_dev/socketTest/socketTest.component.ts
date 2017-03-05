@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,
+  Inject } from '@angular/core';
 import { Socket } from '../socket/Socket';
 import * as ev from '../socket/SocketEvent';
+import { ENV_CONFIG, EnvConfig} from '../../../env';
 
 @Component({
   selector: 'socket-test',
@@ -14,12 +16,14 @@ import * as ev from '../socket/SocketEvent';
 })
 export class SocketTestComponent {
 
-  socket = new Socket('http://localhost:5000');
+  socket: Socket;
   responses: string[] = [];
 
   message: string = '';
 
-  constructor() {
+  constructor(@Inject(ENV_CONFIG) private _env: EnvConfig) {
+
+    this.socket = new Socket('http://' + _env.appPath + ':' +_env.appPort );
 
     this.socket.connect()
       .subscribe((e: ev.SocketEvent<any>) => this.receiveEvent(e));
