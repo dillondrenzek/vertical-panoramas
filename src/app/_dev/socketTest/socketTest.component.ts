@@ -13,6 +13,7 @@ import { ENV_CONFIG, EnvConfig} from '../../../env';
     <input type="text" [(ngModel)]="message"/>
     <input type="button" value="Send Message" (click)="send()"/>
   `,
+  moduleId: module.id
 })
 export class SocketTestComponent {
 

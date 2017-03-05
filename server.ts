@@ -16,15 +16,23 @@ app.set('port', (process.env.PORT || 8080));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/public', express.static(__dirname + '/src/public'));
 
+app.get('/*', (req, res, next) => {
+  console.warn(req.path);
+  next();
+});
+
+
 /**
  * Check for specific files in source, if DNE, pass to next
  */
 app.get('/*', (req, res, next) => {
   let filepath = __dirname + '/src/' + req.path.replace('/','');
+  console.warn(filepath);
   try {
     // Try to access file
     fs.accessSync(filepath);
   } catch (e) {
+    console.warn('>> Didn\'t find file:', filepath);
     // File access failed, pass next
     next();
     return;

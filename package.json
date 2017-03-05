@@ -6,6 +6,7 @@
     "node": "4.2.6"
   },
   "scripts": {
+    "local:dev": "heroku local -e .env.dev",
     "start": "npm run start:prod",
     "start:prod": "npm run build:prod && npm run serve:prod",
     "build:prod": "tsc -p ./tsconfig-server.json && tsc -p ./src/tsconfig-app-prod.json",

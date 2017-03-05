@@ -12,3 +12,4 @@ e2e/**/*.js.map
 server.js
 _test-output
 _temp
+.env.dev
