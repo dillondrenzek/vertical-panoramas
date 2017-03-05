@@ -14,7 +14,7 @@ import * as ev from '../socket/SocketEvent';
 })
 export class SocketTestComponent {
 
-  socket = new Socket('http://localhost:8080');
+  socket = new Socket('http://localhost:5000');
   responses: string[] = [];
 
   message: string = '';
@@ -31,7 +31,6 @@ export class SocketTestComponent {
   }
 
   send() {
-    // this.socket.emit('add-message', this.message);
-    // this.socket.emit()
+    this.socket.emit(new ev.AddMessage(this.message));
   }
 }

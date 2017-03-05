@@ -4,7 +4,7 @@ export const SocketEventType: {[key: string]: SocketEventName} = {
   Respond: 'respond'
 };
 
-export type SocketEventName = 'disconnect' | 'connect' | 'respond';
+export type SocketEventName = 'add-message' | 'disconnect' | 'connect' | 'respond';
 
 
 export abstract class SocketEvent<T> {
@@ -12,6 +12,7 @@ export abstract class SocketEvent<T> {
   static Connect: SocketEventName = 'connect';
   static Disconnect: SocketEventName = 'disconnect';
   static Respond: SocketEventName = 'respond';
+  static AddMessage: SocketEventName = 'add-message';
 
   constructor(
     public name: SocketEventName,
@@ -29,4 +30,8 @@ export class DisconnectEvent extends SocketEvent<void> {
 
 export class RespondEvent extends SocketEvent<any> {
   constructor(private _data: any) { super(SocketEvent.Respond, _data); }
+}
+
+export class AddMessage extends SocketEvent<string> {
+  constructor(private _message: string) { super(SocketEvent.AddMessage, _message); }
 }
