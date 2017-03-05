@@ -84,6 +84,8 @@ let io = socket_io(server);
 io.on('connection', (socket) => {
   log('Received new socket connection.');
 
+    setTimeout(() => { io.emit('respond', 'Test message'); }, 5000);
+
   socket.on('disconnect', function(){
     log('Socket disconnected.');
   });
