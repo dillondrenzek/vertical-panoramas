@@ -14,7 +14,7 @@ import { PagePositionService } from './page/pagePosition.service';
 import { PanoService } from './pano.service';
 import { ImageDirectoryPipe } from './imageDirectoryPipe/imageDirectory.pipe';
 
-
+import { ENV_CONFIG } from '../env';
 
 @NgModule({
   imports:      [

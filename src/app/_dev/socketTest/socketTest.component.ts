@@ -31,8 +31,7 @@ export class SocketTestComponent {
   }
 
   send() {
-    // console.warn('socket', this.socket);
-    // this.socket.send(this.message);
-    this.socket.emit('add-message', this.message);
+    // this.socket.emit('add-message', this.message);
+    // this.socket.emit()
   }
 }
