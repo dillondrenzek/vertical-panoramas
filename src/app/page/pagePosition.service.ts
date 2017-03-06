@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PanoService } from '../pano.service';
+import { PanoService } from '../pano/pano.service';
 
 export enum PagePosition {
   TOP = 0,

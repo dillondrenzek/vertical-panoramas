@@ -10,8 +10,4 @@ export class AppComponent  {
 
   name: string = 'Vertical Panoramas';
 
-
-
-
-
 }

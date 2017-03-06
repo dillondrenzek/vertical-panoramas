@@ -8,15 +8,13 @@ import { RouterModule }           from '@angular/router';
 import { DevModule }              from './_dev/dev.module';
 import { ConfigModule }           from './config/config.module';
 import { SocketModule }           from './socket/socket.module';
+import { PanoModule }             from './pano/pano.module';
 
 import { AppComponent }           from './app.component';
 import { PageComponent }          from './page/page.component';
-import { PanoSliderComponent }    from './panoSlider/panoSlider.component';
-import { PanoDetailComponent }    from './panoDetail/panoDetail.component';
 
 import { PagePositionService }    from './page/pagePosition.service';
-import { PanoService }            from './pano.service';
-import { ImageDirectoryPipe }     from './imageDirectoryPipe/imageDirectory.pipe';
+
 
 
 @NgModule({
@@ -32,18 +30,15 @@ import { ImageDirectoryPipe }     from './imageDirectoryPipe/imageDirectory.pipe
     ]),
     ConfigModule,
     DevModule,
-    SocketModule
+    SocketModule,
+    PanoModule
   ],
   declarations: [
     AppComponent,
-    PageComponent,
-    PanoSliderComponent,
-    PanoDetailComponent,
-    ImageDirectoryPipe
+    PageComponent
   ],
   providers: [
     PagePositionService,
-    PanoService,
   ],
   bootstrap:    [ AppComponent ]
 })
