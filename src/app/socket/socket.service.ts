@@ -23,6 +23,9 @@ export class SocketService {
     this.socket = new Socket(socketUrl);
   }
 
+  connect(): Observable<_.SocketEvent>{
+    return this.socket.events;
+  }
 
 
   // Connect on SocketEvent
