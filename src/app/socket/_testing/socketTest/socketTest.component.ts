@@ -2,7 +2,7 @@ import { Component,
   Inject }                    from '@angular/core';
 import { Socket }             from '../../Socket';
 import * as ev                from '../../SocketEvent';
-import { EnvConfig}           from '../../../../../lib/config/index';
+import { EnvConfig}           from '../../../../lib/config/index';
 import { ConfigService }      from '../../../config/config.service';
 import { SocketService }      from '../../socket.service';
 

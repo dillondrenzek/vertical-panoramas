@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { EnvConfig } from '../../../lib/config/index';
+import { EnvConfig } from '../../lib/config/index';
 
 @Injectable()
 export class ConfigService {
