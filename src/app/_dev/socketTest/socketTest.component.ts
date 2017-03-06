@@ -1,14 +1,16 @@
 import { Component,
-  Inject } from '@angular/core';
-import { Socket } from '../socket/Socket';
-import * as ev from '../socket/SocketEvent';
-import { EnvConfig} from '../../../../lib/config/index';
-import { ConfigService } from '../../config/config.service';
+  Inject }                    from '@angular/core';
+import { Socket }             from '../../socket/Socket';
+import * as ev                from '../../socket/SocketEvent';
+import { EnvConfig}           from '../../../../lib/config/index';
+import { ConfigService }      from '../../config/config.service';
+import { SocketService }      from '../../socket/socket.service';
 
 @Component({
   selector: 'socket-test',
   template: `
-    <div>
+    <div class="col-xs-4">
+      <h3>Connect Event</h3>
       <div *ngFor="let res of responses">{{res | json}}</div>
     </div>
     <input type="text" [(ngModel)]="message"/>
@@ -18,27 +20,30 @@ import { ConfigService } from '../../config/config.service';
 })
 export class SocketTestComponent {
 
-  socket: Socket;
+
+
+
+  get socket(): Socket {
+    return this.socketService.socket;
+  }
+
   responses: string[] = [];
 
   message: string = '';
 
-  constructor(private configService: ConfigService) {
-    let config: EnvConfig = this.configService.config;
+  constructor(
+    private configService: ConfigService,
+    private socketService: SocketService
+  ) {
 
-    console.warn('config', config);
-
-    let socketUrl = config.appPath;
-
-    this.socket = new Socket(socketUrl);
-
-    this.socket.connect()
-      .subscribe((e: ev.SocketEvent<any>) => this.receiveEvent(e));
-
+    this.socketService
+      .eventsByName(ev.SocketEvent.Respond)
+      .subscribe((ev: ev.RespondEvent) =>
+        this.receiveResponse(ev));
   }
 
-  receiveEvent(event: ev.SocketEvent<any>) {
-    this.responses.push(event.name + ': ' + event.data);
+  receiveResponse(res: ev.RespondEvent) {
+    this.responses.push(res.name + ': ' + res.data);
   }
 
   send() {

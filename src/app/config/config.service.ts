@@ -10,6 +10,9 @@ export class ConfigService {
 
   constructor(private http: Http) {  }
 
+  /**
+   * Load server config from `/config`
+   */
   load(): Promise<EnvConfig> {
     return new Promise<EnvConfig>((resolve) => {
       this.http.get('/config')

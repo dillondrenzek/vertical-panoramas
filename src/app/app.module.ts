@@ -7,6 +7,7 @@ import { RouterModule }           from '@angular/router';
 
 import { DevModule }              from './_dev/dev.module';
 import { ConfigModule }           from './config/config.module';
+import { SocketModule }           from './socket/socket.module';
 
 import { AppComponent }           from './app.component';
 import { PageComponent }          from './page/page.component';
@@ -30,7 +31,8 @@ import { ImageDirectoryPipe }     from './imageDirectoryPipe/imageDirectory.pipe
       }
     ]),
     ConfigModule,
-    DevModule
+    DevModule,
+    SocketModule
   ],
   declarations: [
     AppComponent,

@@ -1,13 +1,6 @@
-export const SocketEventType: {[key: string]: SocketEventName} = {
-  Disconnect: 'disconnect',
-  Connect: 'connect',
-  Respond: 'respond'
-};
-
 export type SocketEventName = 'add-message' | 'disconnect' | 'connect' | 'respond';
 
-
-export abstract class SocketEvent<T> {
+export abstract class SocketEvent {
 
   static Connect: SocketEventName = 'connect';
   static Disconnect: SocketEventName = 'disconnect';
@@ -16,22 +9,30 @@ export abstract class SocketEvent<T> {
 
   constructor(
     public name: SocketEventName,
-    public data: T
+    public data: any
   ) {}
+
+  // Comparison
+  static sameType(ev1: SocketEvent, ev2: SocketEvent): boolean {
+    return ev1.name === ev2.name;
+  }
+
+
+
 }
 
-export class ConnectEvent extends SocketEvent<void> {
+export class ConnectEvent extends SocketEvent {
   constructor() { super(SocketEvent.Connect, null); }
 }
 
-export class DisconnectEvent extends SocketEvent<void> {
+export class DisconnectEvent extends SocketEvent {
   constructor() { super(SocketEvent.Disconnect, null); }
 }
 
-export class RespondEvent extends SocketEvent<any> {
+export class RespondEvent extends SocketEvent {
   constructor(private _data: any) { super(SocketEvent.Respond, _data); }
 }
 
-export class AddMessage extends SocketEvent<string> {
+export class AddMessage extends SocketEvent {
   constructor(private _message: string) { super(SocketEvent.AddMessage, _message); }
 }
