@@ -10,9 +10,13 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "typeRoots": [ "node_modules/@types/" ],
-  "types": [ "node", "express" ],
+  "typeRoots": [ "../node_modules/@types/" ],
+  "types": [
+    "node",
+    "express",
+    "socket.io-client"
+  ],
   "exclude": [
-    "./socket/_testing/*"
+    "./app/socket/_testing/*"
   ]
 }
