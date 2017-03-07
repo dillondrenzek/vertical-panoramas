@@ -10,10 +10,8 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "typeRoots": [ "../node_modules/@types/" ],
   "types": [
     "node",
-    "express",
     "socket.io-client"
   ],
   "exclude": [

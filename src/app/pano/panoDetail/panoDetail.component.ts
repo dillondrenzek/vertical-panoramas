@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { Pano } from '../Pano';
+import { Pano } from '../../../lib/pano/Pano';
 import { PanoService } from '../pano.service';
 
 

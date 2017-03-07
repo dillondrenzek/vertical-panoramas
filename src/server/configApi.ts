@@ -24,4 +24,4 @@ configApi.get('/', (req, res, next) => {
   res.send(config);
 });
 
-export let router = configApi;
+export = configApi;

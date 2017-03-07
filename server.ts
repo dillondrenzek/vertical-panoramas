@@ -4,7 +4,8 @@ import express = require('express');
 let log = require('./src/lib/logger').log;
 
 import { EnvConfig } from './src/lib/config/index';
-import {router as ConfigApi} from './src/server/configApi';
+import * as ConfigApi from './src/server/configApi';
+import * as PanosApi from './src/server/panosApi';
 let socket = require('./src/server/socket');
 
 
@@ -23,6 +24,10 @@ app.use('/public', express.static(__dirname + '/src/public'));
 
 // Config API
 app.use('/config', ConfigApi);
+
+// Panos API
+app.use('/panos', PanosApi);
+
 
 /**
  * Check for specific files in source, if DNE, pass to next

@@ -10,8 +10,6 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true
   },
-  "typeRoots": [ "node_modules/@types/" ],
-  "types": [ "node", "express" ],
   "files": [
     "./server.ts",
     "./src/lib/logger/index"

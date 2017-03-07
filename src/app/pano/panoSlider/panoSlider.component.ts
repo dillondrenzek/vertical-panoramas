@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { PanoService } from '../pano.service';
-import { Pano } from '../Pano';
+import { Pano } from '../../../lib/pano/Pano';
 
 
 @Component({
@@ -15,9 +15,7 @@ export class PanoSliderComponent {
     private _el: ElementRef,
     private panoService: PanoService
   ) {
-
     this.panoService.activeIndex.subscribe((p: number) => this.activeIndexChanged(p));
-
   }
 
   get panos(): Pano[] {

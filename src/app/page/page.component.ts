@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { PagePositionService } from './pagePosition.service';
-import { Pano } from '../pano/Pano';
+import { Pano } from '../../lib/pano/Pano';
 
 declare const module: any;
 

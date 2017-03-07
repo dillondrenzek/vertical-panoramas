@@ -1,19 +1,31 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
-import { Pano } from './Pano';
-import { PANOS } from './mockPanos';
+import { Pano } from '../../lib/pano/Pano';
 
 @Injectable()
 export class PanoService {
 
-  constructor() {}
+
+
+  constructor(private http: Http) {
+    this.getPanos().subscribe();
+  }
 
   //---------------------------------------
   // Panos
   //---------------------------------------
 
+  getPanos(): Observable<Pano[]> {
+    return this.http.get('/panos')
+      .map((res: Response) => <Pano[]>res.json())
+      .map((panos: Pano[]) => this._panos = panos);
+  }
+
+  private _panos: Pano[] = [];
+
   get panos(): Pano[] {
-    return PANOS;
+    return this._panos;
   }
 
 

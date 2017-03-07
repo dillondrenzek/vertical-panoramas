@@ -1,7 +1,6 @@
-import { Pano } from './Pano';
 
-export const PANOS: Pano[] = [
-  {
+
+export = [{
     location: 'Beartooth Pass, Montana',
     label: 'Beartooth Pass',
     image: {

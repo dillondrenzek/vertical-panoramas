@@ -66,6 +66,7 @@
     "zone.js": "^0.7.4"
   },
   "devDependencies": {
+    "@types/express": "^4.0.35",
     "@types/jasmine": "^2.5.36",
     "@types/node": "^6.0.46",
     "canonical-path": "0.0.2",
