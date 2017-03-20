@@ -11,8 +11,8 @@
       </div>
       <div class="label-frame">
         <h2>{{pano.label}}</h2>
-        <h3>
-          {{pano.location}}
+        <h3 *ngIf="pano.location.label">
+          {{pano.location.label}}
         </h3>
       </div>
     </div>

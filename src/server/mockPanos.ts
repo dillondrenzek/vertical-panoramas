@@ -1,7 +1,11 @@
 
 
-export = [{
-    location: 'Beartooth Pass, Montana',
+export = [
+  // Beartooth Pass
+  {
+    location: {
+      label: 'Montana'
+    },
     label: 'Beartooth Pass',
     image: {
       height: 1000,
@@ -9,8 +13,20 @@ export = [{
       src: 'beartooth-pass-179x1000.jpg'
     }
   },
+
+  // Gray's Peak
   {
-    location: '',
+    location: {
+      label: 'Colorado',
+      latitude: {
+        value: 39.6336,
+        direction: 'N'
+      },
+      longitude: {
+        value: 105.8172,
+        direction: 'W'
+      }
+    },
     label: 'Gray\'s Peak',
     image: {
       height: 1000,
@@ -18,8 +34,20 @@ export = [{
       src: 'grays-peak-334x1000.jpg'
     }
   },
+
+  // Torrey's Peak
   {
-    location: '',
+    location: {
+      label: 'Colorado',
+      latitude: {
+        value: 39.6428,
+        direction: 'N'
+      },
+      longitude: {
+        value: 105.8214,
+        direction: 'W'
+      }
+    },
     label: 'Torrey\'s Peak',
     image: {
       height: 1000,
@@ -28,7 +56,9 @@ export = [{
     }
   },
   {
-    location: '',
+    location: {
+      label: 'South Dakota'
+    },
     label: 'Badlands',
     image: {
       height: 1000,
@@ -37,7 +67,7 @@ export = [{
     }
   },
   {
-    location: '',
+    location: { label: 'Washington' },
     label: 'Columbia Gorge',
     image: {
       height: 1000,
@@ -46,7 +76,7 @@ export = [{
     }
   },
   {
-    location: '',
+    location: { label: 'Boston, Massachusetts'},
     label: 'Fenway Park',
     image: {
       height: 1000,
@@ -55,7 +85,7 @@ export = [{
     }
   },
   {
-    location: '',
+    location: { label: 'South Dakota'},
     label: 'Mount Rushmore',
     image: {
       height: 1000,
@@ -64,7 +94,7 @@ export = [{
     }
   },
   {
-    location: '',
+    location: { label: 'Seattle, Washington'},
     label: 'Kerry Park',
     image: {
       height: 1000,
@@ -73,7 +103,7 @@ export = [{
     }
   },
   {
-    location: '',
+    location: { label: 'Los Angeles, California'},
     label: 'Hollywood Sign',
     image: {
       height: 1000,

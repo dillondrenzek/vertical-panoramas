@@ -5,5 +5,15 @@ export interface Pano {
     width: number,
     src: string
   },
-  location: string
+  location: {
+    label?: string,
+    latitude?: {
+      value: number,
+      direction: string
+    },
+    longitude?: {
+      value: number,
+      direction: string
+    }
+  } | string
 }

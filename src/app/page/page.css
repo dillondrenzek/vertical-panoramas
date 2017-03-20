@@ -11,6 +11,7 @@
 
 section {
   position: relative;
+  width: 100%;
 }
 
 section:nth-child(1) {

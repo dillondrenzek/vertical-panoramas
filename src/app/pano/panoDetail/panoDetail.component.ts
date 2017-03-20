@@ -29,6 +29,9 @@ export class PanoDetailComponent {
     return { h: height, w: width };
   }
 
+  /**
+   * Active Pano changed
+   */
   activePanoChanged(activePano: Pano) {
     this._activePano = activePano;
   }

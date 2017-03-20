@@ -1,1 +1,19 @@
-<img src="{{panoImageUrl | imgUrl}}" height="{{panoImageSize.h}}" width="{{panoImageSize.w}}" alt="{{_activePano?.label}}">
+<div class="img-frame">
+  <img src="{{panoImageUrl | imgUrl}}" alt="{{_activePano?.label}}">
+  <!-- <img src="{{panoImageUrl | imgUrl}}" height="{{panoImageSize.h}}" width="{{panoImageSize.w}}" alt="{{_activePano?.label}}"> -->
+</div>
+
+<div class="content-frame" *ngIf="_activePano">
+  <h1>{{ _activePano.label}}</h1>
+  <h3>
+    {{(_activePano.location.label) ? _activePano.location.label : ''}}
+    <small *ngIf="_activePano.location.latitude">
+      {{_activePano.location.latitude.value}}
+      {{_activePano.location.latitude.direction}}
+    </small>
+    <small *ngIf="_activePano.location.longitude">
+      {{_activePano.location.longitude.value}}
+      {{_activePano.location.longitude.direction}}
+    </small>
+  </h3>
+</div>
