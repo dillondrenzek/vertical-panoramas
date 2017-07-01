@@ -1,7 +1,7 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 *,
@@ -23,4 +23,23 @@ app {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background: #334;
+
+  #loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h1 {
+      color: #fafafa;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
 }

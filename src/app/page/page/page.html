@@ -1,0 +1,29 @@
+
+  <!-- Section 0 -->
+  <section [style.height.px]="secondaryHeight" (click)="toggleAbout()">
+
+  </section>
+
+  <!-- Section 1 -->
+  <section [style.height.px]="primaryHeight">
+    <header class="flex-wrapper">
+      <div class="flex-item left">
+        <h1>Vertical Panoramas</h1>
+
+      </div>
+      <div class="flex-item right">
+        <h2>
+          A Project By
+          <span class="me"
+            (click)="toggleAbout()">Dillon Drenzek</span>
+        </h2>
+      </div>
+      <!-- <socket-test></socket-test> -->
+    </header>
+    <pano-slider></pano-slider>
+  </section>
+
+  <!-- Section 2 -->
+  <section [style.height.px]="secondaryHeight">
+    <pano-detail></pano-detail>
+  </section>

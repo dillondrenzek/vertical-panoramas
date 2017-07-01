@@ -6,15 +6,20 @@
       *ngFor="let pano of panos; let i = index"
       [class.active]="activeIndex === i"
       (click)="clickedPanoAtIndex(i)">
+
       <div class="img-frame">
         <img src="{{ pano.image.src | imgUrl }}" alt="{{ pano.label }}">
       </div>
+
       <div class="label-frame">
-        <h2>{{pano.label}}</h2>
-        <h3 *ngIf="pano.location.label">
-          {{pano.location.label}}
-        </h3>
+        <label>
+          <h2>{{pano.label}}</h2>
+          <h3 *ngIf="pano.location.label" class="location-label">
+            {{pano.location.label}}
+          </h3>
+        </label>
       </div>
+
     </div>
 
 

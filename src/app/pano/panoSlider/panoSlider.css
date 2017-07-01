@@ -43,19 +43,20 @@
   position: relative;
 }
 
+
 .pano:nth-child(odd) {
-  background: #a95;
+  /*background: #a95;*/
 }
 .pano:nth-child(odd):hover,
 .pano:nth-child(odd).active {
-  background: #ba6;
+  /*background: #ba6;*/
 }
 .pano:nth-child(even) {
-  background: #5a9;
+  /*background: #5a9;*/
 }
 .pano:nth-child(even):hover,
 .pano:nth-child(even).active {
-  background: #6ba;
+  /*background: #6ba;*/
 }
 
 /*
@@ -84,14 +85,14 @@ Pano Label
   width: 100%;
   position: relative;
   text-align: center;
-  border-top: 1px solid #fc0;
-  background: #30373f;
+  border-top: 3px solid #b23b23;
+  /*background: #30373f;*/
 }
 
-.pano h2,
-.pano h3 {
-  width: 100%;
-  color: #eaeaea;
-
+.label-frame label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }

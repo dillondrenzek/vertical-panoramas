@@ -9,11 +9,8 @@ import { DevModule }              from './_dev/dev.module';
 import { ConfigModule }           from './config/config.module';
 import { SocketModule }           from './socket/socket.module';
 import { PanoModule }             from './pano/pano.module';
-
+import { PageModule }             from './page/page.module';
 import { AppComponent }           from './app.component';
-import { PageComponent }          from './page/page.component';
-
-import { PagePositionService }    from './page/pagePosition.service';
 
 
 
@@ -25,20 +22,30 @@ import { PagePositionService }    from './page/pagePosition.service';
     RouterModule.forRoot([
       {
         path: '',
-        component: PageComponent
-      }
+        redirectTo: 'about',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
+        component: AppComponent,
+        loadChildren: 'app/page/page.module#PageModule'
+      },
+      // {
+      //   path: ':page_position',
+      //   component: PageComponent,
+      // }
     ]),
     ConfigModule,
     DevModule,
     SocketModule,
-    PanoModule
+    PanoModule,
+    PageModule
   ],
   declarations: [
-    AppComponent,
-    PageComponent
+    AppComponent
   ],
   providers: [
-    PagePositionService,
+
   ],
   bootstrap:    [ AppComponent ]
 })

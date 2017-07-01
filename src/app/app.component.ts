@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app',
   template: `
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   `,
 })
 export class AppComponent  {
+
+  // @HostBinding('style.width.px')
+  // get width() {
+  //   return window.screenX;
+  // }
+  //
+  // @HostBinding('style.height.px')
+  // get height() {
+  //   return window.screenY;
+  // }
 
   name: string = 'Vertical Panoramas';
 

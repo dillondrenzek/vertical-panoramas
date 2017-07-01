@@ -1,0 +1,98 @@
+:host {
+  display: block;
+  position: relative;
+  transition: top 200ms ease-in-out;
+  width: 100%;
+}
+
+
+.scroll {
+  position: absolute;
+}
+
+section {
+  position: relative;
+  width: 100%;
+}
+
+section:nth-child(1) {
+  /*background: #eaeaea;*/
+  cursor: pointer;
+}
+section:nth-child(2) {
+  /*background: #aeaeae;*/
+}
+section:nth-child(3) {
+  /*background: #eaeaea;*/
+}
+
+/*
+
+Header
+
+*/
+
+/* >> Header - Flexbox Styles */
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.flex-item {
+  flex: 1 1 50%;
+}
+
+/* >> Header - Visual tyles */
+
+header  {
+  height: 20%;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.left,
+.right {
+  padding: 0 50px;
+}
+
+.left > * {
+  display: inline-block
+}
+
+.right {
+  text-align: right;
+}
+.right h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.right h2 .me {
+  letter-spacing: 1px;
+  color: #b23b23;
+  font-weight: 700;
+}
+
+/*
+
+Pano Slider
+
+*/
+
+pano-slider {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  /*background: #333;*/
+}
