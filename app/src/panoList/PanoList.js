@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 
-import PanoListItem from './PanoListItem';
+import PanoListItem from '../PanoListItem/PanoListItem';
 
 class PanoList extends Component {
 
-  constructor(props) { super() ;}
+  constructor(props) {
+    super(props);
+  }
+
+  handleListItemClick(e) {
+    console.log('clicked list item:', e);
+    this.props.onSelectPano(e);
+  }
 
   render() {
     let panos = this.props.panos
 
     return (
-      <ul>
-        {panos.map((x, index) =>
-          <PanoListItem pano={x} key={index}/>
-        )}
-      </ul>
+      <div>
+        <h2>Pano List</h2>
+        <ul>
+          {panos.map((x, index) =>
+            <PanoListItem key={index} pano={x} onClick={(e) => this.handleListItemClick(e)}/>
+          )}
+        </ul>
+      </div>
+
     )
   }
 }

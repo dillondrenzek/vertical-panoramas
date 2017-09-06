@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 
 class PanoListItem extends Component {
 
-  constructor(props) { super(); }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     let pano = this.props.pano;
 
     return (
-      <li>
+      <li onClick={(e) => this.props.onClick(pano)}>
         <h3>
           {pano.label}
         </h3>
