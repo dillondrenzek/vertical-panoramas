@@ -16,10 +16,7 @@ class PanoListItem extends Component {
             {pano.label}
           </h3>
           <h4>
-            <small>location</small> {pano.location.label}
-          </h4>
-          <h4>
-            <small>url</small> {pano.image.src}
+            {pano.location.label}
           </h4>
         </div>
         <figure>

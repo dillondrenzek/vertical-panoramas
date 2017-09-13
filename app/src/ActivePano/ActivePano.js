@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./ActivePano.css";
 
 class ActivePano extends Component {
 
@@ -44,7 +45,9 @@ class ActivePano extends Component {
     let Image = ({displayImage, image}) => {
       // if displayImage === true, show <img>
       return (displayImage)
-        ? (<div>image</div>)
+        ? (<figure>
+          <img src={"/img/"+image.src} height={image.height} width={image.width} alt=""/>
+        </figure>)
         : (<div>
           <h3>Image</h3>
           <div>
@@ -64,24 +67,25 @@ class ActivePano extends Component {
 
 
 
-    return (
+    return (activePano) ? (
       <div className="ActivePano">
-        <h2>Active Pano</h2>
-
-        {activePano &&
-        <div className="Pano">
-          <Image image={activePano.image} displayImage={false}/>
+        <section>
           <Label label={activePano.label}/>
           <Location location={activePano.location}/>
-        </div>}
+        </section>
 
-        {!activePano &&
-        <div className="Pano empty">
-          No Active Pano.
-        </div>}
+        <section>
+          <Image image={activePano.image} displayImage={true}/>
+        </section>
 
+        <section>
+
+        </section>
       </div>
     )
+    : (<div className="Pano empty">
+      No Active Pano.
+    </div>);
   }
 }
 

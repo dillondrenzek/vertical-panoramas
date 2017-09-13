@@ -26,13 +26,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="AppTitle">Vertical Panoramas</div>
-        <div className="PanoList">
+        <div className="app-title">Vertical Panoramas</div>
+        <div className="pano-list">
           <PanoList panos={panos} activePano={activePano} onSelectPano={(e) => this.handleSelectPano(e)}/>
         </div>
-        {/* <div className="ActivePano">
+        <div className="active-pano">
           <ActivePano activePano={activePano} />
-        </div> */}
+        </div>
       </div>
     );
   }
