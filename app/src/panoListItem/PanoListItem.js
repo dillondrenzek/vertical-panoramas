@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class PanoListItem extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let pano = this.props.pano;
 

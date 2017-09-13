@@ -4,10 +4,6 @@ import PanoListItem from '../PanoListItem/PanoListItem';
 
 class PanoList extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   handleListItemClick(e) {
     console.log('clicked list item:', e);
     this.props.onSelectPano(e);
