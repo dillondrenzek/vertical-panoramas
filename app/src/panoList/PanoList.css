@@ -1,29 +1,17 @@
-.frame {
-  height: 100%;
-  width: 100%;
-
-  position: relative;
-}
-
 ul {
-  /*float: left;*/
-  /*position: relative;
-  width: auto;*/
   height: 100%;
   width: 100%;
   list-style-type: none;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-
 }
 
 li {
-  width: 320px;
+  width: 240px;
   height: 100%;
   cursor: pointer;
   display: inline-block;
-  /*float: left;*/
 }
 
 li.selected {
