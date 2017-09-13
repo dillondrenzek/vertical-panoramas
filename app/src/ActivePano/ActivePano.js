@@ -65,14 +65,19 @@ class ActivePano extends Component {
 
 
     return (
-      <div class="ActivePano">
+      <div className="ActivePano">
         <h2>Active Pano</h2>
 
         {activePano &&
-        <div class="Pano">
+        <div className="Pano">
           <Image image={activePano.image} displayImage={false}/>
           <Label label={activePano.label}/>
           <Location location={activePano.location}/>
+        </div>}
+
+        {!activePano &&
+        <div className="Pano empty">
+          No Active Pano.
         </div>}
 
       </div>

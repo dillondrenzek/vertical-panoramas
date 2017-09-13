@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import './PanoListItem.css';
 
 class PanoListItem extends Component {
 
   render() {
     let pano = this.props.pano;
+    let isSelected = this.props.selected;
+
+    let className = (isSelected) ? "selected" : "";
 
     return (
-      <li onClick={(e) => this.props.onClick(pano)}>
+      <div className={"list-item " + className} onClick={(e) => this.props.onClick(pano)}>
         <h3>
           {pano.label}
         </h3>
@@ -17,7 +21,7 @@ class PanoListItem extends Component {
           <small>url</small> {pano.image.src}
         </h4>
         <img src={pano.image.src} height={pano.image.height} width={pano.image.width} alt=""/>
-      </li>
+      </div>
     )
   }
 

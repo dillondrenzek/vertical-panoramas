@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   handleSelectPano(pano) {
-    console.log('yep');
     // change state.activePano
     this.setState(Object.assign(this.state, {
       activePano: pano
@@ -27,13 +26,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div>Vertical Panoramas</div>
+        <div className="AppTitle">Vertical Panoramas</div>
         <div className="PanoList">
-          <PanoList panos={panos} onSelectPano={(e) => this.handleSelectPano(e)}/>
+          <PanoList panos={panos} activePano={activePano} onSelectPano={(e) => this.handleSelectPano(e)}/>
         </div>
-        <div className="ActivePano">
+        {/* <div className="ActivePano">
           <ActivePano activePano={activePano} />
-        </div>
+        </div> */}
       </div>
     );
   }

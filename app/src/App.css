@@ -24,17 +24,22 @@
 }*/
 
 .App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.AppTitle {
+  position: relative;
+  height: 20%;
   width: 100%;
 }
 
 .PanoList {
-  width: 60%;
-  /*display: inline-block;*/
-  float: left;
-}
-
-.ActivePano {
-  width: 40%;
-  /*display: inline-block;*/
-  float: left;
+  width: 100%;
+  height: 80%;
+  overflow: auto;
 }
