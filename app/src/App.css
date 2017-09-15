@@ -30,10 +30,12 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 }
 
 .page {
   position: relative;
+  transition: top .3s ease;
 }
 
 .app-title {

@@ -16,23 +16,25 @@ class App extends Component {
   }
 
   handleSelectPano(pano) {
+    // determine new active pano:
+    // - if selected the same pano a second time, set to null
+    // - else set to pano
+    let newActive = (this.state.activePano && (pano === this.state.activePano))
+      ? null
+      : pano;
 
-    if (this.state.activePano) pano = null;
-    
     // change state.activePano
     this.setState(Object.assign(this.state, {
-      activePano: pano
+      activePano: newActive
     }));
   }
+
 
   render() {
     let activePano = this.state.activePano,
       panos = MockPanos,
-      pageStyle = { top: '0%' };
-
-    if (activePano) {
-      pageStyle.top = '-84%';
-    }
+      top = (this.state.activePano) ? '-84%' : '0%',
+      pageStyle = { top: top };
 
     return (
       <div className="App">

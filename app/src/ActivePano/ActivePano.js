@@ -82,10 +82,11 @@ class ActivePano extends Component {
 
         </section>
       </div>
-    )
-    : (<div className="Pano empty">
-      No Active Pano.
-    </div>);
+      ) : (
+      <div className="Pano empty">
+        No Active Pano.
+      </div>
+    );
   }
 }
 

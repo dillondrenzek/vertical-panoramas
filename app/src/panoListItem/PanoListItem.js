@@ -7,9 +7,13 @@ class PanoListItem extends Component {
     let pano = this.props.pano;
     let isSelected = this.props.selected;
 
-    let className = (isSelected) ? "selected" : "";
+    // include 'selected' class name
+    let classNames = [
+      (isSelected) ? "selected" : "",
+      "list-item"
+    ].join(' ');
 
-    // Decide content
+    // Decide content based on selected state
     let content = (isSelected)
       ? (
         // when selected
@@ -29,7 +33,7 @@ class PanoListItem extends Component {
       );
 
     return (
-      <div className={"list-item " + className} onClick={(e) => this.props.onClick(pano)}>
+      <div className={classNames} onClick={(e) => this.props.onClick(pano)}>
         <div className="list-item-title">
           {content}
         </div>
