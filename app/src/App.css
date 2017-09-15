@@ -32,20 +32,24 @@
   width: 100%;
 }
 
+.page {
+  position: relative;
+}
+
 .app-title {
   position: relative;
-  height: 20%;
+  height: 20vh;
   width: 100%;
 }
 
 .pano-list {
   width: 100%;
-  height: 80%;
+  height: 80vh;
   overflow: auto;
 }
 
 .active-pano {
   width: 100%;
-  height: 84%;
+  height: 84vh;
 
 }

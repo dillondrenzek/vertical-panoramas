@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import MockPanos from './MockPanos';
+import AppTitle from './AppTitle/AppTitle';
 import PanoList from './PanoList/PanoList';
 import ActivePano from './ActivePano/ActivePano';
+
+import MockPanos from './MockPanos';
 
 class App extends Component {
 
@@ -14,6 +16,9 @@ class App extends Component {
   }
 
   handleSelectPano(pano) {
+
+    if (this.state.activePano) pano = null;
+    
     // change state.activePano
     this.setState(Object.assign(this.state, {
       activePano: pano
@@ -21,17 +26,26 @@ class App extends Component {
   }
 
   render() {
-    let activePano = this.state.activePano;
-    let panos = MockPanos;
+    let activePano = this.state.activePano,
+      panos = MockPanos,
+      pageStyle = { top: '0%' };
+
+    if (activePano) {
+      pageStyle.top = '-84%';
+    }
 
     return (
       <div className="App">
-        <div className="app-title">Vertical Panoramas</div>
-        <div className="pano-list">
-          <PanoList panos={panos} activePano={activePano} onSelectPano={(e) => this.handleSelectPano(e)}/>
-        </div>
-        <div className="active-pano">
-          <ActivePano activePano={activePano} />
+        <div className="page" style={pageStyle}>
+          <div className="app-title">
+            <AppTitle title="Vertical Panoramas"/>
+          </div>
+          <div className="pano-list">
+            <PanoList panos={panos} activePano={activePano} onSelectPano={(e) => this.handleSelectPano(e)}/>
+          </div>
+          <div className="active-pano">
+            <ActivePano activePano={activePano} />
+          </div>
         </div>
       </div>
     );

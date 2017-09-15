@@ -8,10 +8,10 @@ class ActivePano extends Component {
     let activePano = this.props.activePano;
 
     // Label
-    let Label = (props) => {
-      return (props.label)
+    let Label = ({_label}) => {
+      return (_label)
         ? (<label>
-            <h2>{props.label}</h2>
+            <h2>{_label}</h2>
           </label>)
         : (<label></label>);
     }

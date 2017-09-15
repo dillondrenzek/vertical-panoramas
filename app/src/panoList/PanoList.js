@@ -17,7 +17,7 @@ class PanoList extends Component {
       <ul className="PanoList">
         {panos.map((pano, index) =>
           <li key={index}>
-            <PanoListItem key={index} pano={pano} selected={(pano === activePano)} onClick={(e) => this.handleListItemClick(e)}/>
+            <PanoListItem key={index} pano={pano} selected={(pano === activePano)} onClick={(e) => this.handleListItemClick(e)} />
           </li>
         )}
       </ul>
