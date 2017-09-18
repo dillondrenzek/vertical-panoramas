@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./ActivePano.css";
 
+import LatLong from './LatLong/LatLong';
+
 class ActivePano extends Component {
 
   render() {
@@ -8,70 +10,57 @@ class ActivePano extends Component {
     let activePano = this.props.activePano;
 
     // Label
-    let Label = ({_label}) => {
-      return (_label)
+    let Label = ({label}) => {
+
+      return (label)
         ? (<label>
-            <h2>{_label}</h2>
+            <h2>{label}</h2>
           </label>)
         : (<label></label>);
     }
 
     // Location
     let Location = ({location}) => {
-      let latitude = (location.latitude)
-        ? (<div>
-          <h4>latitude</h4>
-          <p>{location.latitude.value} {location.latitude.direction}</p>
-        </div>)
-        : null;
-      let longitude = (location.longitude)
-        ? (<div>
-          <h4>longitude</h4>
-          <p>{location.longitude.value} {location.longitude.direction}</p>
-        </div>)
-        : null;
+      console.log('location', location);
+      if (location) {
+        let label = location.label;
+        let lat= location.latitude;
+        let lon = location.longitude;
+        // console.log('lat', lat);
+        // console.log('lon', lon);
 
-      return (location)
-        ? (<div>
-            <h3>Location</h3>
-            <div>{location.label}</div>
-            {latitude}
-            {longitude}
-          </div>)
-        : (<div></div>);
+        return (<div className="location">
+            <div>{label}</div>
+            <LatLong latitude={lat} longitude={lon} />
+          </div>);
+      } else {
+        // No location
+        return (<div></div>);
+      }
     }
 
     // Image
     let Image = ({displayImage, image}) => {
       // if displayImage === true, show <img>
-      return (displayImage)
+      return (displayImage || !image)
         ? (<figure>
           <img src={"/img/"+image.src} height={image.height} width={image.width} alt=""/>
         </figure>)
-        : (<div>
-          <h3>Image</h3>
-          <div>
-            <h4>height</h4>
-            <p>{image.height}</p>
-          </div>
-          <div>
-            <h4>width</h4>
-            <p>{image.width}</p>
-          </div>
-          <div>
-            <h4>src</h4>
-            <p>{image.src}</p>
-          </div>
-        </div>);
+        : (<figure>
+          <div>No image</div>
+        </figure>);
     }
 
-
+    console.log('activePano.label', activePano && activePano.label);
+    console.log('activePano.location', activePano && activePano.location);
 
     return (activePano) ? (
       <div className="ActivePano">
         <section>
-          <Label label={activePano.label}/>
-          <Location location={activePano.location}/>
+          <div className="vertical-center">
+            <Label label={activePano.label}/>
+            <Location location={activePano.location}/>
+          </div>
         </section>
 
         <section>

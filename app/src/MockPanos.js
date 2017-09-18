@@ -1,4 +1,50 @@
 const MockPanos =  [
+  {
+    location: { label: 'Washington' },
+    label: 'Columbia Gorge',
+    image: {
+      height: 1000,
+      width: 410,
+      src: 'columbia-gorge-410x1000.jpg'
+    }
+  },
+  {
+    location: { label: 'Boston, Massachusetts'},
+    label: 'Fenway Park',
+    image: {
+      height: 1000,
+      width: 360,
+      src: 'fenway-park-360x1000.jpg'
+    }
+  },
+  {
+    location: { label: 'South Dakota'},
+    label: 'Mount Rushmore',
+    image: {
+      height: 1000,
+      width: 329,
+      src: 'mount-rushmore-329x1000.jpg'
+    }
+  },
+  {
+    location: { label: 'Seattle, Washington'},
+    label: 'Kerry Park',
+    image: {
+      height: 1000,
+      width: 423,
+      src: 'kerry-park-423x1000.jpg'
+    }
+  },
+  {
+    location: { label: 'Los Angeles, California'},
+    label: 'Hollywood Sign',
+    image: {
+      height: 1000,
+      width: 404,
+      src: 'hollywood-sign-404x1000.jpg'
+    }
+  },
+  
     // Beartooth Pass
     {
       location: {
@@ -64,51 +110,7 @@ const MockPanos =  [
         src: 'badlands-342x1000.jpg'
       }
     },
-    {
-      location: { label: 'Washington' },
-      label: 'Columbia Gorge',
-      image: {
-        height: 1000,
-        width: 410,
-        src: 'columbia-gorge-410x1000.jpg'
-      }
-    },
-    {
-      location: { label: 'Boston, Massachusetts'},
-      label: 'Fenway Park',
-      image: {
-        height: 1000,
-        width: 360,
-        src: 'fenway-park-360x1000.jpg'
-      }
-    },
-    {
-      location: { label: 'South Dakota'},
-      label: 'Mount Rushmore',
-      image: {
-        height: 1000,
-        width: 329,
-        src: 'mount-rushmore-329x1000.jpg'
-      }
-    },
-    {
-      location: { label: 'Seattle, Washington'},
-      label: 'Kerry Park',
-      image: {
-        height: 1000,
-        width: 423,
-        src: 'kerry-park-423x1000.jpg'
-      }
-    },
-    {
-      location: { label: 'Los Angeles, California'},
-      label: 'Hollywood Sign',
-      image: {
-        height: 1000,
-        width: 404,
-        src: 'hollywood-sign-404x1000.jpg'
-      }
-    },
+
   ];
 
 

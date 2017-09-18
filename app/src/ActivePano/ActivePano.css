@@ -2,11 +2,20 @@
   width: 100%;
   height: 100%;
   position: relative;
+  clear: both;
 }
 
 section {
   width: 33.3333333%;
-  display: inline-block;
+  height: 100%;
+  /*display: inline-block;*/
+  float: left;
+  text-align: center;
+}
+
+section > div {
+  float: left;
+  /*text-align: center;*/
 }
 
 .ActivePano figure {
