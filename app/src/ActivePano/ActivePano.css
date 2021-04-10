@@ -13,11 +13,6 @@ section {
   text-align: center;
 }
 
-section > div {
-  float: left;
-  /*text-align: center;*/
-}
-
 .ActivePano figure {
   height: 100%;
   width: 50%;

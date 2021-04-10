@@ -13,6 +13,13 @@
   width: 100%;
   background: white;
   text-align: center;
+
+
+}
+
+.list-item-title h3 {
+  font-size: 1.875rem;
+  letter-spacing: -0.03333333333em;
 }
 
 .list-item.selected .list-item-title {

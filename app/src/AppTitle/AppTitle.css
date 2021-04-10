@@ -6,4 +6,10 @@
 
 h1 {
   padding-left: 50px;
+
+  /*h1 style*/
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -0.04166666667em;
+
 }
